@@ -21,28 +21,37 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AnestheticRegimen" Type="Undefined" Nullable="false" />
-          <Property Name="AsepticTechnique" Type="Undefined" Nullable="false" />
-          <Property Name="OcclusionMonitorTechnique" Type="Undefined" Nullable="false" />
-          <Property Name="InternalValidity" Type="Undefined" Nullable="false" />
-          <Property Name="IschemiaModel" Type="Undefined" Nullable="false" />
-          <Property Name="DrugAdministration" Type="Undefined" Nullable="false" />
-          <Property Name="InVivoModel" Type="Undefined" Nullable="false" />
-          <Property Name="POCarePack" Type="Undefined" Nullable="false" />
-          <Property Name="Infarct" Type="Undefined" Nullable="false" />
-          <Property Name="BehaviouralMeasure" Type="Undefined" Nullable="false" />
-          <Property Name="BrainTissueAssays" Type="Undefined" Nullable="false" />
-          <Property Name="BrainProcessing" Type="Undefined" Nullable="false" />
-          <Property Name="InVitroModel" Type="Undefined" Nullable="false" />
-          <Property Name="Housing" Type="Undefined" Nullable="false" />
-          <Property Name="TerminationOption" Type="String" Nullable="false" />
-        </EntityType>
+          <Property Name="Anesthetic" Type="String" Nullable="false" />
+          <Property Name="O2" Type="Double" Nullable="false" />
+          <Property Name="NitrousOxide" Type="Double" Nullable="false" />
+          <Property Name="MedicalAir" Type="Double" Nullable="false" />
+          <Property Name="Fasted" Type="Boolean" Nullable="false" />
+          <Property Name="OralInturbation" Type="Boolean" Nullable="false" />
+          <Property Name="Property6" Type="String" Nullable="false" />
+          <Property Name="Property7" Type="String" Nullable="false" />
+          <Property Name="Property8" Type="String" Nullable="false" />
+          <Property Name="Property9" Type="String" Nullable="false" />
+          <Property Name="Property10" Type="String" Nullable="false" />
+          <Property Name="Property11" Type="String" Nullable="false" />
+          <Property Name="Property12" Type="String" Nullable="false" />
+          <Property Name="Property13" Type="String" Nullable="false" />
+          <Property Name="Property14" Type="String" Nullable="false" />
+          <Property Name="Property15" Type="String" Nullable="false" />
+          <Property Name="Property16" Type="String" Nullable="false" />
+          <Property Name="Property17" Type="String" Nullable="false" />
+          <Property Name="Property18" Type="String" Nullable="false" />
+          <Property Name="Property19" Type="String" Nullable="false" />
+          <Property Name="Property20" Type="String" Nullable="false" />
+          <Property Name="Property21" Type="String" Nullable="false" />
+          <Property Name="Property22" Type="String" Nullable="false" />
+          <Property Name="Property23" Type="String" Nullable="false" />
+          <Property Name="Property24" Type="String" Nullable="false" />
+          </EntityType>
         <EntityType Name="Outcome">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ComplexProperty1" Type="Undefined" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
