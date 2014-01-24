@@ -13,10 +13,10 @@
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="StudyModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="StudyModelContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Publications" EntityType="StudyModel.Publication" />
+          <EntitySet Name="Studies" EntityType="StudyModel.Study" />
           <EntitySet Name="Outcomes" EntityType="StudyModel.Outcome" />
         </EntityContainer>
-        <EntityType Name="Publication">
+        <EntityType Name="Study">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -27,12 +27,14 @@
           <Property Name="MedicalAir" Type="Double" Nullable="false" />
           <Property Name="Fasted" Type="Boolean" Nullable="false" />
           <Property Name="OralInturbation" Type="Boolean" Nullable="false" />
-          <Property Name="Property6" Type="String" Nullable="false" />
-          <Property Name="Property7" Type="String" Nullable="false" />
-          <Property Name="Property8" Type="String" Nullable="false" />
-          <Property Name="Property9" Type="String" Nullable="false" />
-          <Property Name="Property10" Type="String" Nullable="false" />
-          <Property Name="Property11" Type="String" Nullable="false" />
+          <Property Name="Heparin" Type="Double" Nullable="false" />
+          <Property Name="Atropine" Type="String" Nullable="false" />
+          <Property Name="Autoclave" Type="Boolean" Nullable="false" />
+          <Property Name="HotBead" Type="Boolean" Nullable="false" />
+          <Property Name="Gloves" Type="Boolean" Nullable="false" />
+          <Property Name="Masks" Type="Boolean" Nullable="false" />
+          <Property Name="Scrubs" Type="Boolean" Nullable="false" />
+          <Property Name="Shower" Type="Boolean" Nullable="false" />
           <Property Name="Property12" Type="String" Nullable="false" />
           <Property Name="Property13" Type="String" Nullable="false" />
           <Property Name="Property14" Type="String" Nullable="false" />
