@@ -25,6 +25,27 @@
           <Property Name="Strain" Type="String" Nullable="false" />
           <Property Name="Sex" Type="String" Nullable="false" />
           <Property Name="Source" Type="String" Nullable="false" />
+          <Property Name="Anesthetic" Type="String" Nullable="false" />
+          <Property Name="Drug" Type="String" Nullable="false" />
+          <Property Name="O2" Type="Double" Nullable="false" />
+          <Property Name="NitrousOxide" Type="Double" Nullable="false" />
+          <Property Name="MedicalAir" Type="Double" Nullable="false" />
+          <Property Name="Fasted" Type="Boolean" Nullable="false" />
+          <Property Name="OralInturbation" Type="Boolean" Nullable="false" />
+          <Property Name="Heparin" Type="Double" Nullable="false" />
+          <Property Name="Atropine" Type="String" Nullable="false" />
+          <Property Name="Autoclave" Type="Boolean" Nullable="false" />
+          <Property Name="HotBead" Type="Boolean" Nullable="false" />
+          <Property Name="Gloves" Type="Boolean" Nullable="false" />
+          <Property Name="Masks" Type="Boolean" Nullable="false" />
+          <Property Name="Scrubs" Type="Boolean" Nullable="false" />
+          <Property Name="Shower" Type="Boolean" Nullable="false" />
+          <Property Name="Randomisation" Type="String" Nullable="false" />
+          <Property Name="SurgeryConceal" Type="Boolean" Nullable="false" />
+          <Property Name="HandlingConceal" Type="Boolean" Nullable="false" />
+          <Property Name="BlindedInfarct" Type="String" Nullable="false" />
+          <Property Name="BlindedNBS" Type="String" Nullable="false" />
+          <Property Name="BlindedOther" Type="String" Nullable="false" />
           <Property Name="IncExcCriteria" Type="Boolean" Nullable="false" />
           <Property Name="LaserFlowmetry" Type="Double" Nullable="false" />
           <Property Name="BehaviouralDefecitAssesment" Type="String" Nullable="false" />
@@ -113,9 +134,6 @@
           <Property Name="PathogenFree" Type="Boolean" Nullable="false" />
           <Property Name="Ventilation" Nullable="false" Type="String" />
           <Property Name="WaterRegimen" Type="String" Nullable="false" />
-          <Property Name="AnestheticRegimen" Type="StudyModel.AnestheticRegimen" Nullable="false" />
-          <Property Name="ComplexProperty" Type="StudyModel.AsepticTechnique" Nullable="false" />
-          <Property Name="ComplexProperty1" Type="StudyModel.InternalValidity" Nullable="false" />
           </EntityType>
         <EntityType Name="Outcome">
           <Key>
@@ -146,33 +164,6 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           </EntityType>
-        <ComplexType Name="AnestheticRegimen">
-          <Property Type="String" Name="Anesthetic" Nullable="false" />
-          <Property Type="String" Name="Drug" Nullable="false" />
-          <Property Type="Double" Name="O2" Nullable="false" />
-          <Property Type="Double" Name="NitrousOxide" Nullable="false" />
-          <Property Type="Double" Name="MedicalAir" Nullable="false" />
-          <Property Type="Boolean" Name="Fasted" Nullable="false" />
-          <Property Type="Boolean" Name="OralInturbation" Nullable="false" />
-          <Property Type="Double" Name="Heparin" Nullable="false" />
-          <Property Type="String" Name="Atropine" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="AsepticTechnique">
-          <Property Type="Boolean" Name="Autoclave" Nullable="false" />
-          <Property Type="Boolean" Name="HotBead" Nullable="false" />
-          <Property Type="Boolean" Name="Gloves" Nullable="false" />
-          <Property Type="Boolean" Name="Masks" Nullable="false" />
-          <Property Type="Boolean" Name="Scrubs" Nullable="false" />
-          <Property Type="Boolean" Name="Shower" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="InternalValidity">
-          <Property Type="String" Name="Randomisation" Nullable="false" />
-          <Property Type="Boolean" Name="SurgeryConceal" Nullable="false" />
-          <Property Type="Boolean" Name="HandlingConceal" Nullable="false" />
-          <Property Type="String" Name="BlindedInfarct" Nullable="false" />
-          <Property Type="String" Name="BlindedNBS" Nullable="false" />
-          <Property Type="String" Name="BlindedOther" Nullable="false" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
