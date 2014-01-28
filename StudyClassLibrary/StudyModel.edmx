@@ -15,10 +15,6 @@
         <EntityContainer Name="StudyModelContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Studies" EntityType="StudyModel.Study" />
           <EntitySet Name="Outcomes" EntityType="StudyModel.Outcome" />
-          <AssociationSet Name="StudyOutcome" Association="StudyModel.StudyOutcome">
-            <End Role="Study" EntitySet="Studies" />
-            <End Role="Outcome" EntitySet="Outcomes" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Study">
           <Key>
@@ -43,7 +39,6 @@
           <Property Name="BrainProcessing" Type="StudyModel.BrainProcessing" Nullable="false" />
           <Property Name="InVitroModel" Type="StudyModel.InVitroModel" Nullable="false" />
           <Property Name="Housing" Type="StudyModel.Housing" Nullable="false" />
-          <NavigationProperty Name="Outcomes" Relationship="StudyModel.StudyOutcome" FromRole="Study" ToRole="Outcome" />
           </EntityType>
         <EntityType Name="Outcome">
           <Key>
@@ -53,11 +48,20 @@
           <Property Name="Weight" Type="String" Nullable="true" />
           <Property Name="Age" Type="String" Nullable="true" />
           <Property Name="Vehicle" Type="String" Nullable="true" />
+          <Property Name="GADuration" Type="String" Nullable="true" />
+          <Property Name="BloodPressure" Type="Single" Nullable="true" />
+          <Property Name="HeartRate" Type="Single" Nullable="true" />
+          <Property Name="BrainTemperature" Type="Single" Nullable="true" />
+          <Property Name="RectalTemperature" Type="Boolean" Nullable="true" />
+          <Property Name="BloodGasses" Type="Boolean" Nullable="true" />
+          <Property Name="LDFDrop" Type="Single" Nullable="true" />
+          <Property Name="BehaviouralScores" Type="Boolean" Nullable="true" />
+          <Property Name="MRIData" Type="Boolean" Nullable="true" />
           <Property Name="InfarctSize" Type="Double" Nullable="true" />
-          <Property Name="AnestheticManagement" Type="StudyModel.AnestheticManagement" Nullable="false" />
-          <Property Name="OcclusiongResults" Type="StudyModel.OcclusionResults" Nullable="false" />
-          <Property Name="Terminiation" Type="StudyModel.Termination" Nullable="false" />
-          <NavigationProperty Name="Study" Relationship="StudyModel.StudyOutcome" FromRole="Outcome" ToRole="Study" />
+          <Property Name="SurvivedToEnd" Type="Boolean" Nullable="true" />
+          <Property Name="DiedDuringSurgery" Type="Boolean" Nullable="true" />
+          <Property Name="PostOp" Type="String" Nullable="true" />
+          <Property Name="Autopsy" Type="Boolean" Nullable="true" />
         </EntityType>
         <ComplexType Name="AnestheticRegimen">
           <Property Type="String" Name="Anesthetic" Nullable="true" />
@@ -195,29 +199,6 @@
           <Property Type="String" Name="Ventilation" Nullable="true" />
           <Property Type="String" Name="WaterRegimen" Nullable="true" />
         </ComplexType>
-        <ComplexType Name="AnestheticManagement">
-          <Property Type="String" Name="GADuration" Nullable="true" />
-          <Property Type="Single" Name="BloodPressure" Nullable="true" />
-          <Property Type="Single" Name="HeartRate" Nullable="true" />
-          <Property Type="Single" Name="BrainTemperature" Nullable="true" />
-          <Property Type="Boolean" Name="RectalTemperature" Nullable="true" />
-          <Property Type="Boolean" Name="BloodGasses" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="OcclusionResults">
-          <Property Type="Single" Name="LDFDrop" Nullable="true" />
-          <Property Type="Boolean" Name="BehaviouralScores" Nullable="true" />
-          <Property Type="Boolean" Name="MRIData" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="Termination">
-          <Property Type="Boolean" Name="SurvivedToEnd" Nullable="true" />
-          <Property Type="Boolean" Name="DiedDuringSurgery" Nullable="true" />
-          <Property Type="String" Name="PostOp" Nullable="true" />
-          <Property Type="Boolean" Name="Autopsy" Nullable="true" />
-        </ComplexType>
-        <Association Name="StudyOutcome">
-          <End Type="StudyModel.Study" Role="Study" Multiplicity="1" />
-          <End Type="StudyModel.Outcome" Role="Outcome" Multiplicity="*" />
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

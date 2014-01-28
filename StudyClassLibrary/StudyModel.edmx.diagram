@@ -5,9 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ed1859f9f1954b73926cabe5d9b75206" Name="Diagram1" ZoomLevel="77" >
-        <EntityTypeShape EntityType="StudyModel.Study" Width="3.25" PointX="1.75" PointY="0.75" />
-        <EntityTypeShape EntityType="StudyModel.Outcome" Width="1.5" PointX="5.75" PointY="0.75" />
-        <AssociationConnector Association="StudyModel.StudyOutcome" />
+        <EntityTypeShape EntityType="StudyModel.Study" Width="3.25" PointX="1" PointY="0.5" />
+        <EntityTypeShape EntityType="StudyModel.Outcome" Width="1.5" PointX="5" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
