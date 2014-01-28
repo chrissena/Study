@@ -15,13 +15,18 @@
         <EntityContainer Name="StudyModelContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Studies" EntityType="StudyModel.Study" />
           <EntitySet Name="Outcomes" EntityType="StudyModel.Outcome" />
+          <EntitySet Name="Animals" EntityType="StudyModel.Animal" />
         </EntityContainer>
         <EntityType Name="Study">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Strain" Type="String" Nullable="false" />
+          <Property Name="Sex" Type="String" Nullable="false" />
+          <Property Name="Source" Type="String" Nullable="false" />
           <Property Name="Anesthetic" Type="String" Nullable="false" />
+          <Property Name="Drug" Type="String" Nullable="false" />
           <Property Name="O2" Type="Double" Nullable="false" />
           <Property Name="NitrousOxide" Type="Double" Nullable="false" />
           <Property Name="MedicalAir" Type="Double" Nullable="false" />
@@ -135,7 +140,30 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Weight" Type="String" Nullable="false" />
+          <Property Name="Age" Type="String" Nullable="false" />
+          <Property Name="Vehicle" Type="String" Nullable="false" />
+          <Property Name="GADuration" Type="String" Nullable="false" />
+          <Property Name="BloodPressure" Type="Single" Nullable="false" />
+          <Property Name="HeartRate" Type="Single" Nullable="false" />
+          <Property Name="BrainTemperature" Type="Single" Nullable="false" />
+          <Property Name="RectalTemperature" Type="Boolean" Nullable="false" />
+          <Property Name="BloodGasses" Type="Boolean" Nullable="false" />
+          <Property Name="LDFDrop" Type="Single" Nullable="false" />
+          <Property Name="BehaviouralScores" Type="Boolean" Nullable="false" />
+          <Property Name="MRIData" Type="Boolean" Nullable="false" />
+          <Property Name="InfarctSize" Type="Double" Nullable="false" />
+          <Property Name="SurvivedToEnd" Type="Boolean" Nullable="false" />
+          <Property Name="DiedDuringSurgery" Type="Boolean" Nullable="false" />
+          <Property Name="PostOp" Type="String" Nullable="false" />
+          <Property Name="Autopsy" Type="Boolean" Nullable="false" />
         </EntityType>
+        <EntityType Name="Animal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
