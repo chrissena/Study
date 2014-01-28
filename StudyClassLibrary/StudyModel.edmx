@@ -15,155 +15,190 @@
         <EntityContainer Name="StudyModelContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Studies" EntityType="StudyModel.Study" />
           <EntitySet Name="Outcomes" EntityType="StudyModel.Outcome" />
-          <EntitySet Name="Animals" EntityType="StudyModel.Animal" />
         </EntityContainer>
         <EntityType Name="Study">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Strain" Type="String" Nullable="false" />
-          <Property Name="Sex" Type="String" Nullable="false" />
-          <Property Name="Source" Type="String" Nullable="false" />
-          <Property Name="Anesthetic" Type="String" Nullable="false" />
-          <Property Name="Drug" Type="String" Nullable="false" />
-          <Property Name="O2" Type="Double" Nullable="false" />
-          <Property Name="NitrousOxide" Type="Double" Nullable="false" />
-          <Property Name="MedicalAir" Type="Double" Nullable="false" />
-          <Property Name="Fasted" Type="Boolean" Nullable="false" />
-          <Property Name="OralInturbation" Type="Boolean" Nullable="false" />
-          <Property Name="Heparin" Type="Double" Nullable="false" />
-          <Property Name="Atropine" Type="String" Nullable="false" />
-          <Property Name="Autoclave" Type="Boolean" Nullable="false" />
-          <Property Name="HotBead" Type="Boolean" Nullable="false" />
-          <Property Name="Gloves" Type="Boolean" Nullable="false" />
-          <Property Name="Masks" Type="Boolean" Nullable="false" />
-          <Property Name="Scrubs" Type="Boolean" Nullable="false" />
-          <Property Name="Shower" Type="Boolean" Nullable="false" />
-          <Property Name="Randomisation" Type="String" Nullable="false" />
-          <Property Name="SurgeryConceal" Type="Boolean" Nullable="false" />
-          <Property Name="HandlingConceal" Type="Boolean" Nullable="false" />
-          <Property Name="BlindedInfarct" Type="String" Nullable="false" />
-          <Property Name="BlindedNBS" Type="String" Nullable="false" />
-          <Property Name="BlindedOther" Type="String" Nullable="false" />
-          <Property Name="IncExcCriteria" Type="Boolean" Nullable="false" />
-          <Property Name="LaserFlowmetry" Type="Double" Nullable="false" />
-          <Property Name="BehaviouralDefecitAssesment" Type="String" Nullable="false" />
-          <Property Name="MRIforCBF" Type="String" Nullable="false" />
-          <Property Name="IschemiaType" Type="String" Nullable="false" />
-          <Property Name="OcclusionMethod" Type="String" Nullable="false" />
-          <Property Name="IschemiaDuration" Nullable="false" Type="Double" />
-          <Property Name="SecondaryInsult" Type="String" Nullable="false" />
-          <Property Name="DrugRoute" Type="String" Nullable="false" />
-          <Property Name="DeliveryDuration" Type="Double" Nullable="false" />
-          <Property Name="DeliveryNumber" Type="Double" Nullable="false" />
-          <Property Name="InVivoGlutamate" Type="Boolean" Nullable="false" />
-          <Property Name="InVivoOxidative" Type="Boolean" Nullable="false" />
-          <Property Name="InVivoVasculature" Type="Boolean" Nullable="false" />
-          <Property Name="SpecialDiet" Type="String" Nullable="false" />
-          <Property Name="SubCutFluids" Type="Boolean" Nullable="false" />
-          <Property Name="NumberCage" Type="String" Nullable="false" />
-          <Property Name="Bedding" Type="String" Nullable="false" />
-          <Property Name="LocalAnesthetics" Type="String" Nullable="false" />
-          <Property Name="PainRelief" Type="String" Nullable="false" />
-          <Property Name="RecoveryQuestionnaire" Type="Boolean" Nullable="false" />
-          <Property Name="BodyWeightFrequency" Type="Int32" Nullable="false" />
-          <Property Name="TTC" Type="Boolean" Nullable="false" />
-          <Property Name="Histology" Type="String" Nullable="false" />
-          <Property Name="MRI" Type="Boolean" Nullable="false" />
-          <Property Name="CoronalNumber" Type="Single" Nullable="false" />
-          <Property Name="RostroCovered" Type="Boolean" Nullable="false" />
-          <Property Name="SwellingCorrection" Type="Boolean" Nullable="false" />
-          <Property Name="PostStrokePeriod" Type="Time" Nullable="false" />
-          <Property Name="NeurologicalDetails" Type="String" Nullable="false" />
-          <Property Name="SensorTests" Type="String" Nullable="false" />
-          <Property Name="OtherTests" Type="String" Nullable="false" />
-          <Property Name="WesternBlot" Type="Boolean" Nullable="false" />
-          <Property Name="mRNA" Type="Boolean" Nullable="false" />
-          <Property Name="miRNA" Type="Boolean" Nullable="false" />
-          <Property Name="ELISA" Type="Boolean" Nullable="false" />
-          <Property Name="Biochemical" Type="Boolean" Nullable="false" />
-          <Property Name="HPLC" Type="Boolean" Nullable="false" />
-          <Property Name="PerfusionFix" Type="Boolean" Nullable="false" />
-          <Property Name="CryostatFresh" Type="String" Nullable="false" />
-          <Property Name="CryostatFixSucrose" Type="Boolean" Nullable="false" />
-          <Property Name="ParaffinMicrotome" Type="Boolean" Nullable="false" />
-          <Property Name="Immunohistochemistry" Type="String" Nullable="false" />
-          <Property Name="CellsInCulture" Type="Boolean" Nullable="false" />
-          <Property Name="OrganotypicClices" Type="Boolean" Nullable="false" />
-          <Property Name="HypoxicChamber" Type="Boolean" Nullable="false" />
-          <Property Name="OxygenGlucoseDeprivation" Type="Boolean" Nullable="false" />
-          <Property Name="GlutamateToxicity" Type="Boolean" Nullable="false" />
-          <Property Name="TerminationOptions" Type="String" Nullable="false" />
-          <Property Name="AcclimatisationPeriod" Type="Time" Nullable="false" />
-          <Property Name="AcousticBackground" Type="String" Nullable="false" />
-          <Property Name="AdditionalSpeciesLab" Type="Boolean" Nullable="false" />
-          <Property Name="AdditionalSpeciesBuilding" Type="Boolean" Nullable="false" />
-          <Property Name="BeddingMaterial" Type="String" Nullable="false" />
-          <Property Name="CageDistributor" Type="String" Nullable="false" />
-          <Property Name="CageType" Type="String" Nullable="false" />
-          <Property Name="CageSize" Type="Single" Nullable="false" />
-          <Property Name="NumberOfCageChanges" Type="Int32" Nullable="false" />
-          <Property Name="EnrichmentBySpecies" Type="Boolean" Nullable="false" />
-          <Property Name="EnrichmentType" Type="String" Nullable="false" />
-          <Property Name="FilterTop" Type="Boolean" Nullable="false" />
-          <Property Name="FloodDeprivation" Type="Boolean" Nullable="false" />
-          <Property Name="FloodDeprivationSchedule" Type="String" Nullable="false" />
-          <Property Name="Floor" Type="String" Nullable="false" />
-          <Property Name="Handling" Type="String" Nullable="false" />
-          <Property Name="HealthCheck" Type="Boolean" Nullable="false" />
-          <Property Name="HealthCheckFrequency" Type="String" Nullable="false" />
-          <Property Name="LidDistributor" Type="String" Nullable="false" />
-          <Property Name="LidType" Type="String" Nullable="false" />
-          <Property Name="Lighting" Type="String" Nullable="false" />
-          <Property Name="LightingHours" Type="Time" Nullable="false" />
-          <Property Name="LightPhaseIntensity" Type="Double" Nullable="false" />
-          <Property Name="DarkPhaseIntensity" Type="Double" Nullable="false" />
-          <Property Name="GroupHousing" Type="Boolean" Nullable="false" />
-          <Property Name="ExperimenterCount" Type="Int32" Nullable="false" />
-          <Property Name="AnimalsPerRoom" Type="Int32" Nullable="false" />
-          <Property Name="CagesPerRack" Type="Int32" Nullable="false" />
-          <Property Name="RacksPerRoom" Type="Int32" Nullable="false" />
-          <Property Name="OdorSources" Type="String" Nullable="false" />
-          <Property Name="RackType" Type="String" Nullable="false" />
-          <Property Name="RoomSize" Type="Double" Nullable="false" />
-          <Property Name="RoomTempRange" Type="Double" Nullable="false" />
-          <Property Name="RoomTempRegulated" Type="Boolean" Nullable="false" />
-          <Property Name="RelHumidityRange" Type="Double" Nullable="false" />
-          <Property Name="RelHumidityReg" Type="Boolean" Nullable="false" />
-          <Property Name="PathogenFree" Type="Boolean" Nullable="false" />
-          <Property Name="Ventilation" Nullable="false" Type="String" />
-          <Property Name="WaterRegimen" Type="String" Nullable="false" />
+          <Property Name="Strain" Type="String" Nullable="true" />
+          <Property Name="Sex" Type="String" Nullable="true" />
+          <Property Name="Source" Type="String" Nullable="true" />
+          <Property Name="TerminationOptions" Type="String" Nullable="true" />
+          <Property Name="AnestheticRegimen" Type="StudyModel.AnestheticRegimen" Nullable="false" />
+          <Property Name="AsepticTechnique" Type="StudyModel.AsepticTechnique" Nullable="false" />
+          <Property Name="InternalValidity" Type="StudyModel.InternalValidity" Nullable="false" />
+          <Property Name="OcclusionMonitoring" Type="StudyModel.OcclusionMonitoring" Nullable="false" />
+          <Property Name="IschemiaModel" Type="StudyModel.IschemiaModel" Nullable="false" />
+          <Property Name="DrugAdministraton" Type="StudyModel.DrugAdministration" Nullable="false" />
+          <Property Name="InVivioAssays" Type="StudyModel.InVivoAssays" Nullable="false" />
+          <Property Name="PostOpCarePack" Type="StudyModel.PostOpCarePack" Nullable="false" />
+          <Property Name="InfarctMeasurement" Type="StudyModel.InfarctMeasurement" Nullable="false" />
+          <Property Name="BehaviouralOutcomes" Type="StudyModel.BehaviouralOutcomes" Nullable="false" />
+          <Property Name="BrainAssays" Type="StudyModel.BrainAssays" Nullable="false" />
+          <Property Name="BrainProcessing" Type="StudyModel.BrainProcessing" Nullable="false" />
+          <Property Name="InVitroModel" Type="StudyModel.InVitroModel" Nullable="false" />
+          <Property Name="Housing" Type="StudyModel.Housing" Nullable="false" />
           </EntityType>
         <EntityType Name="Outcome">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Weight" Type="String" Nullable="false" />
-          <Property Name="Age" Type="String" Nullable="false" />
-          <Property Name="Vehicle" Type="String" Nullable="false" />
-          <Property Name="GADuration" Type="String" Nullable="false" />
-          <Property Name="BloodPressure" Type="Single" Nullable="false" />
-          <Property Name="HeartRate" Type="Single" Nullable="false" />
-          <Property Name="BrainTemperature" Type="Single" Nullable="false" />
-          <Property Name="RectalTemperature" Type="Boolean" Nullable="false" />
-          <Property Name="BloodGasses" Type="Boolean" Nullable="false" />
-          <Property Name="LDFDrop" Type="Single" Nullable="false" />
-          <Property Name="BehaviouralScores" Type="Boolean" Nullable="false" />
-          <Property Name="MRIData" Type="Boolean" Nullable="false" />
-          <Property Name="InfarctSize" Type="Double" Nullable="false" />
-          <Property Name="SurvivedToEnd" Type="Boolean" Nullable="false" />
-          <Property Name="DiedDuringSurgery" Type="Boolean" Nullable="false" />
-          <Property Name="PostOp" Type="String" Nullable="false" />
-          <Property Name="Autopsy" Type="Boolean" Nullable="false" />
+          <Property Name="Weight" Type="String" Nullable="true" />
+          <Property Name="Age" Type="String" Nullable="true" />
+          <Property Name="Vehicle" Type="String" Nullable="true" />
+          <Property Name="GADuration" Type="String" Nullable="true" />
+          <Property Name="BloodPressure" Type="Single" Nullable="true" />
+          <Property Name="HeartRate" Type="Single" Nullable="true" />
+          <Property Name="BrainTemperature" Type="Single" Nullable="true" />
+          <Property Name="RectalTemperature" Type="Boolean" Nullable="true" />
+          <Property Name="BloodGasses" Type="Boolean" Nullable="true" />
+          <Property Name="LDFDrop" Type="Single" Nullable="true" />
+          <Property Name="BehaviouralScores" Type="Boolean" Nullable="true" />
+          <Property Name="MRIData" Type="Boolean" Nullable="true" />
+          <Property Name="InfarctSize" Type="Double" Nullable="true" />
+          <Property Name="SurvivedToEnd" Type="Boolean" Nullable="true" />
+          <Property Name="DiedDuringSurgery" Type="Boolean" Nullable="true" />
+          <Property Name="PostOp" Type="String" Nullable="true" />
+          <Property Name="Autopsy" Type="Boolean" Nullable="true" />
         </EntityType>
-        <EntityType Name="Animal">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          </EntityType>
+        <ComplexType Name="AnestheticRegimen">
+          <Property Type="String" Name="Anesthetic" Nullable="true" />
+          <Property Type="String" Name="Drug" Nullable="true" />
+          <Property Type="Double" Name="O2" Nullable="true" />
+          <Property Type="Double" Name="NitrousOxide" Nullable="true" />
+          <Property Type="Double" Name="MedicalAir" Nullable="true" />
+          <Property Type="Boolean" Name="Fasted" Nullable="true" />
+          <Property Type="Boolean" Name="OralInturbation" Nullable="true" />
+          <Property Type="Double" Name="Heparin" Nullable="true" />
+          <Property Type="String" Name="Atropine" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="AsepticTechnique">
+          <Property Type="Boolean" Name="Autoclave" Nullable="true" />
+          <Property Type="Boolean" Name="HotBead" Nullable="true" />
+          <Property Type="Boolean" Name="Gloves" Nullable="true" />
+          <Property Type="Boolean" Name="Masks" Nullable="true" />
+          <Property Type="Boolean" Name="Scrubs" Nullable="true" />
+          <Property Type="Boolean" Name="Shower" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="InternalValidity">
+          <Property Type="String" Name="Randomisation" Nullable="true" />
+          <Property Type="Boolean" Name="SurgeryConceal" Nullable="true" />
+          <Property Type="Boolean" Name="HandlingConceal" Nullable="true" />
+          <Property Type="String" Name="BlindedInfarct" Nullable="true" />
+          <Property Type="String" Name="BlindedNBS" Nullable="true" />
+          <Property Type="String" Name="BlindedOther" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="OcclusionMonitoring">
+          <Property Type="Boolean" Name="IncExcCriteria" Nullable="true" />
+          <Property Type="Double" Name="LaserFlowmetry" Nullable="true" />
+          <Property Type="String" Name="BehaviouralDefecitAssesment" Nullable="true" />
+          <Property Type="String" Name="MRIforCBF" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="IschemiaModel">
+          <Property Type="String" Name="IschemiaType" Nullable="true" />
+          <Property Type="String" Name="OcclusionMethod" Nullable="true" />
+          <Property Type="Double" Name="IschemiaDuration" Nullable="true" />
+          <Property Type="String" Name="SecondaryInsult" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="DrugAdministration">
+          <Property Type="String" Name="DrugRoute" Nullable="true" />
+          <Property Type="Double" Name="DeliveryDuration" Nullable="true" />
+          <Property Type="Double" Name="DeliveryNumber" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="InVivoAssays">
+          <Property Type="Boolean" Name="InVivoGlutamate" Nullable="true" />
+          <Property Type="Boolean" Name="InVivoOxidative" Nullable="true" />
+          <Property Type="Boolean" Name="InVivoVasculature" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="PostOpCarePack">
+          <Property Type="String" Name="SpecialDiet" Nullable="true" />
+          <Property Type="Boolean" Name="SubCutFluids" Nullable="true" />
+          <Property Type="String" Name="NumberCage" Nullable="true" />
+          <Property Type="String" Name="Bedding" Nullable="true" />
+          <Property Type="String" Name="LocalAnesthetics" Nullable="true" />
+          <Property Type="String" Name="PainRelief" Nullable="true" />
+          <Property Type="Boolean" Name="RecoveryQuestionnaire" Nullable="true" />
+          <Property Type="Int32" Name="BodyWeightFrequency" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="InfarctMeasurement">
+          <Property Type="Boolean" Name="TTC" Nullable="true" />
+          <Property Type="String" Name="Histology" Nullable="true" />
+          <Property Type="Boolean" Name="MRI" Nullable="true" />
+          <Property Type="Single" Name="CoronalNumber" Nullable="true" />
+          <Property Type="Boolean" Name="RostroCovered" Nullable="true" />
+          <Property Type="Boolean" Name="SwellingCorrection" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="BehaviouralOutcomes">
+          <Property Type="Time" Name="PostStrokePeriod" Nullable="true" />
+          <Property Type="String" Name="NeurologicalDetails" Nullable="true" />
+          <Property Type="String" Name="SensorTests" Nullable="true" />
+          <Property Type="String" Name="OtherTests" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="BrainAssays">
+          <Property Type="Boolean" Name="WesternBlot" Nullable="true" />
+          <Property Type="Boolean" Name="mRNA" Nullable="true" />
+          <Property Type="Boolean" Name="miRNA" Nullable="true" />
+          <Property Type="Boolean" Name="ELISA" Nullable="true" />
+          <Property Type="Boolean" Name="Biochemical" Nullable="true" />
+          <Property Type="Boolean" Name="HPLC" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="BrainProcessing">
+          <Property Type="Boolean" Name="PerfusionFix" Nullable="true" />
+          <Property Type="String" Name="CryostatFresh" Nullable="true" />
+          <Property Type="Boolean" Name="CryostatFixSucrose" Nullable="true" />
+          <Property Type="Boolean" Name="ParaffinMicrotome" Nullable="true" />
+          <Property Type="String" Name="Immunohistochemistry" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="InVitroModel">
+          <Property Type="Boolean" Name="CellsInCulture" Nullable="true" />
+          <Property Type="Boolean" Name="OrganotypicClices" Nullable="true" />
+          <Property Type="Boolean" Name="HypoxicChamber" Nullable="true" />
+          <Property Type="Boolean" Name="OxygenGlucoseDeprivation" Nullable="true" />
+          <Property Type="Boolean" Name="GlutamateToxicity" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Housing">
+          <Property Type="Time" Name="AcclimatisationPeriod" Nullable="true" />
+          <Property Type="String" Name="AcousticBackground" Nullable="true" />
+          <Property Type="Boolean" Name="AdditionalSpeciesLab" Nullable="true" />
+          <Property Type="Boolean" Name="AdditionalSpeciesBuilding" Nullable="true" />
+          <Property Type="String" Name="BeddingMaterial" Nullable="true" />
+          <Property Type="String" Name="CageDistributor" Nullable="true" />
+          <Property Type="String" Name="CageType" Nullable="true" />
+          <Property Type="Single" Name="CageSize" Nullable="true" />
+          <Property Type="Int32" Name="NumberOfCageChanges" Nullable="true" />
+          <Property Type="Boolean" Name="EnrichmentBySpecies" Nullable="true" />
+          <Property Type="String" Name="EnrichmentType" Nullable="true" />
+          <Property Type="Boolean" Name="FilterTop" Nullable="true" />
+          <Property Type="Boolean" Name="FloodDeprivation" Nullable="true" />
+          <Property Type="String" Name="FloodDeprivationSchedule" Nullable="true" />
+          <Property Type="String" Name="Floor" Nullable="true" />
+          <Property Type="String" Name="Handling" Nullable="true" />
+          <Property Type="Boolean" Name="HealthCheck" Nullable="true" />
+          <Property Type="String" Name="HealthCheckFrequency" Nullable="true" />
+          <Property Type="String" Name="LidDistributor" Nullable="true" />
+          <Property Type="String" Name="LidType" Nullable="true" />
+          <Property Type="String" Name="Lighting" Nullable="true" />
+          <Property Type="Time" Name="LightingHours" Nullable="true" />
+          <Property Type="Double" Name="LightPhaseIntensity" Nullable="true" />
+          <Property Type="Double" Name="DarkPhaseIntensity" Nullable="true" />
+          <Property Type="Boolean" Name="GroupHousing" Nullable="true" />
+          <Property Type="Int32" Name="ExperimenterCount" Nullable="true" />
+          <Property Type="Int32" Name="AnimalsPerRoom" Nullable="true" />
+          <Property Type="Int32" Name="CagesPerRack" Nullable="true" />
+          <Property Type="Int32" Name="RacksPerRoom" Nullable="true" />
+          <Property Type="String" Name="OdorSources" Nullable="true" />
+          <Property Type="String" Name="RackType" Nullable="true" />
+          <Property Type="Double" Name="RoomSize" Nullable="true" />
+          <Property Type="Double" Name="RoomTempRange" Nullable="true" />
+          <Property Type="Boolean" Name="RoomTempRegulated" Nullable="true" />
+          <Property Type="Double" Name="RelHumidityRange" Nullable="true" />
+          <Property Type="Boolean" Name="RelHumidityReg" Nullable="true" />
+          <Property Type="Boolean" Name="PathogenFree" Nullable="true" />
+          <Property Type="String" Name="Ventilation" Nullable="true" />
+          <Property Type="String" Name="WaterRegimen" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
