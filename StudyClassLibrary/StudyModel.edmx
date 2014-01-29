@@ -4,11 +4,170 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="StudyModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="StudyModelTargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="StudyModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="StudyModelStoreContainer">
+    <EntitySet Name="Studies" EntityType="StudyModel.Store.Studies" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Outcomes" EntityType="StudyModel.Store.Outcomes" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="StudyOutcome" Association="StudyModel.Store.StudyOutcome">
+      <End Role="Study" EntitySet="Studies" />
+      <End Role="Outcome" EntitySet="Outcomes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Studies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Strain" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Sex" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Source" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TerminationOptions" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="AnestheticRegimen_Anesthetic" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="AnestheticRegimen_Drug" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="AnestheticRegimen_O2" Type="float" Nullable="true" />
+    <Property Name="AnestheticRegimen_NitrousOxide" Type="float" Nullable="true" />
+    <Property Name="AnestheticRegimen_MedicalAir" Type="float" Nullable="true" />
+    <Property Name="AnestheticRegimen_Fasted" Type="bit" Nullable="true" />
+    <Property Name="AnestheticRegimen_OralInturbation" Type="bit" Nullable="true" />
+    <Property Name="AnestheticRegimen_Heparin" Type="float" Nullable="true" />
+    <Property Name="AnestheticRegimen_Atropine" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="AsepticTechnique_Autoclave" Type="bit" Nullable="true" />
+    <Property Name="AsepticTechnique_HotBead" Type="bit" Nullable="true" />
+    <Property Name="AsepticTechnique_Gloves" Type="bit" Nullable="true" />
+    <Property Name="AsepticTechnique_Masks" Type="bit" Nullable="true" />
+    <Property Name="AsepticTechnique_Scrubs" Type="bit" Nullable="true" />
+    <Property Name="AsepticTechnique_Shower" Type="bit" Nullable="true" />
+    <Property Name="InternalValidity_Randomisation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="InternalValidity_SurgeryConceal" Type="bit" Nullable="true" />
+    <Property Name="InternalValidity_HandlingConceal" Type="bit" Nullable="true" />
+    <Property Name="InternalValidity_BlindedInfarct" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="InternalValidity_BlindedNBS" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="InternalValidity_BlindedOther" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="OcclusionMonitoring_IncExcCriteria" Type="bit" Nullable="true" />
+    <Property Name="OcclusionMonitoring_LaserFlowmetry" Type="float" Nullable="true" />
+    <Property Name="OcclusionMonitoring_BehaviouralDefecitAssesment" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="OcclusionMonitoring_MRIforCBF" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="IschemiaModel_IschemiaType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="IschemiaModel_OcclusionMethod" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="IschemiaModel_IschemiaDuration" Type="float" Nullable="true" />
+    <Property Name="IschemiaModel_SecondaryInsult" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DrugAdministraton_DrugRoute" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DrugAdministraton_DeliveryDuration" Type="float" Nullable="true" />
+    <Property Name="DrugAdministraton_DeliveryNumber" Type="float" Nullable="true" />
+    <Property Name="InVivioAssays_InVivoGlutamate" Type="bit" Nullable="true" />
+    <Property Name="InVivioAssays_InVivoOxidative" Type="bit" Nullable="true" />
+    <Property Name="InVivioAssays_InVivoVasculature" Type="bit" Nullable="true" />
+    <Property Name="PostOpCarePack_SpecialDiet" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PostOpCarePack_SubCutFluids" Type="bit" Nullable="true" />
+    <Property Name="PostOpCarePack_NumberCage" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PostOpCarePack_Bedding" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PostOpCarePack_LocalAnesthetics" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PostOpCarePack_PainRelief" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PostOpCarePack_RecoveryQuestionnaire" Type="bit" Nullable="true" />
+    <Property Name="PostOpCarePack_BodyWeightFrequency" Type="int" Nullable="true" />
+    <Property Name="InfarctMeasurement_TTC" Type="bit" Nullable="true" />
+    <Property Name="InfarctMeasurement_Histology" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="InfarctMeasurement_MRI" Type="bit" Nullable="true" />
+    <Property Name="InfarctMeasurement_CoronalNumber" Type="real" Nullable="true" />
+    <Property Name="InfarctMeasurement_RostroCovered" Type="bit" Nullable="true" />
+    <Property Name="InfarctMeasurement_SwellingCorrection" Type="bit" Nullable="true" />
+    <Property Name="BehaviouralOutcomes_PostStrokePeriod" Type="time" Nullable="true" />
+    <Property Name="BehaviouralOutcomes_NeurologicalDetails" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BehaviouralOutcomes_SensorTests" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BehaviouralOutcomes_OtherTests" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BrainAssays_WesternBlot" Type="bit" Nullable="true" />
+    <Property Name="BrainAssays_mRNA" Type="bit" Nullable="true" />
+    <Property Name="BrainAssays_miRNA" Type="bit" Nullable="true" />
+    <Property Name="BrainAssays_ELISA" Type="bit" Nullable="true" />
+    <Property Name="BrainAssays_Biochemical" Type="bit" Nullable="true" />
+    <Property Name="BrainAssays_HPLC" Type="bit" Nullable="true" />
+    <Property Name="BrainProcessing_PerfusionFix" Type="bit" Nullable="true" />
+    <Property Name="BrainProcessing_CryostatFresh" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BrainProcessing_CryostatFixSucrose" Type="bit" Nullable="true" />
+    <Property Name="BrainProcessing_ParaffinMicrotome" Type="bit" Nullable="true" />
+    <Property Name="BrainProcessing_Immunohistochemistry" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="InVitroModel_CellsInCulture" Type="bit" Nullable="true" />
+    <Property Name="InVitroModel_OrganotypicClices" Type="bit" Nullable="true" />
+    <Property Name="InVitroModel_HypoxicChamber" Type="bit" Nullable="true" />
+    <Property Name="InVitroModel_OxygenGlucoseDeprivation" Type="bit" Nullable="true" />
+    <Property Name="InVitroModel_GlutamateToxicity" Type="bit" Nullable="true" />
+    <Property Name="Housing_AcclimatisationPeriod" Type="time" Nullable="true" />
+    <Property Name="Housing_AcousticBackground" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Housing_AdditionalSpeciesLab" Type="bit" Nullable="true" />
+    <Property Name="Housing_AdditionalSpeciesBuilding" Type="bit" Nullable="true" />
+    <Property Name="Housing_BeddingMaterial" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Housing_CageDistributor" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Housing_CageType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Housing_CageSize" Type="real" Nullable="true" />
+    <Property Name="Housing_NumberOfCageChanges" Type="int" Nullable="true" />
+    <Property Name="Housing_EnrichmentBySpecies" Type="bit" Nullable="true" />
+    <Property Name="Housing_EnrichmentType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Housing_FilterTop" Type="bit" Nullable="true" />
+    <Property Name="Housing_FloodDeprivation" Type="bit" Nullable="true" />
+    <Property Name="Housing_FloodDeprivationSchedule" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Housing_Floor" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Housing_Handling" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Housing_HealthCheck" Type="bit" Nullable="true" />
+    <Property Name="Housing_HealthCheckFrequency" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Housing_LidDistributor" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Housing_LidType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Housing_Lighting" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Housing_LightingHours" Type="time" Nullable="true" />
+    <Property Name="Housing_LightPhaseIntensity" Type="float" Nullable="true" />
+    <Property Name="Housing_DarkPhaseIntensity" Type="float" Nullable="true" />
+    <Property Name="Housing_GroupHousing" Type="bit" Nullable="true" />
+    <Property Name="Housing_ExperimenterCount" Type="int" Nullable="true" />
+    <Property Name="Housing_AnimalsPerRoom" Type="int" Nullable="true" />
+    <Property Name="Housing_CagesPerRack" Type="int" Nullable="true" />
+    <Property Name="Housing_RacksPerRoom" Type="int" Nullable="true" />
+    <Property Name="Housing_OdorSources" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Housing_RackType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Housing_RoomSize" Type="float" Nullable="true" />
+    <Property Name="Housing_RoomTempRange" Type="float" Nullable="true" />
+    <Property Name="Housing_RoomTempRegulated" Type="bit" Nullable="true" />
+    <Property Name="Housing_RelHumidityRange" Type="float" Nullable="true" />
+    <Property Name="Housing_RelHumidityReg" Type="bit" Nullable="true" />
+    <Property Name="Housing_PathogenFree" Type="bit" Nullable="true" />
+    <Property Name="Housing_Ventilation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Housing_WaterRegimen" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Outcomes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Weight" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Age" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Vehicle" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="InfarctSize" Type="float" Nullable="true" />
+    <Property Name="AnestheticManagement_GADuration" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="AnestheticManagement_BloodPressure" Type="real" Nullable="true" />
+    <Property Name="AnestheticManagement_HeartRate" Type="real" Nullable="true" />
+    <Property Name="AnestheticManagement_BrainTemperature" Type="real" Nullable="true" />
+    <Property Name="AnestheticManagement_RectalTemperature" Type="bit" Nullable="true" />
+    <Property Name="AnestheticManagement_BloodGasses" Type="bit" Nullable="true" />
+    <Property Name="OcclusionResults_LDFDrop" Type="real" Nullable="true" />
+    <Property Name="OcclusionResults_BehaviouralScores" Type="bit" Nullable="true" />
+    <Property Name="OcclusionResults_MRIData" Type="bit" Nullable="true" />
+    <Property Name="Terminiation_SurvivedToEnd" Type="bit" Nullable="true" />
+    <Property Name="Terminiation_DiedDuringSurgery" Type="bit" Nullable="true" />
+    <Property Name="Terminiation_PostOp" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Terminiation_Autopsy" Type="bit" Nullable="true" />
+    <Property Name="StudyId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="StudyOutcome">
+    <End Role="Study" Type="StudyModel.Store.Studies" Multiplicity="1" />
+    <End Role="Outcome" Type="StudyModel.Store.Outcomes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Study">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Outcome">
+        <PropertyRef Name="StudyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="StudyModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
@@ -231,13 +390,188 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="StudyModel" />
-        <Alias Key="Target" Value="StudyModel.Store" />
-        <EntityContainerMapping CdmEntityContainer="StudyModelContainer" StorageEntityContainer="StudyModelTargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StudyModelStoreContainer" CdmEntityContainer="StudyModelContainer">
+    <EntitySetMapping Name="Studies">
+      <EntityTypeMapping TypeName="IsTypeOf(StudyModel.Study)">
+        <MappingFragment StoreEntitySet="Studies">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Strain" ColumnName="Strain" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="TerminationOptions" ColumnName="TerminationOptions" />
+          <ComplexProperty Name="AnestheticRegimen" TypeName="StudyModel.AnestheticRegimen">
+            <ScalarProperty Name="Anesthetic" ColumnName="AnestheticRegimen_Anesthetic" />
+            <ScalarProperty Name="Drug" ColumnName="AnestheticRegimen_Drug" />
+            <ScalarProperty Name="O2" ColumnName="AnestheticRegimen_O2" />
+            <ScalarProperty Name="NitrousOxide" ColumnName="AnestheticRegimen_NitrousOxide" />
+            <ScalarProperty Name="MedicalAir" ColumnName="AnestheticRegimen_MedicalAir" />
+            <ScalarProperty Name="Fasted" ColumnName="AnestheticRegimen_Fasted" />
+            <ScalarProperty Name="OralInturbation" ColumnName="AnestheticRegimen_OralInturbation" />
+            <ScalarProperty Name="Heparin" ColumnName="AnestheticRegimen_Heparin" />
+            <ScalarProperty Name="Atropine" ColumnName="AnestheticRegimen_Atropine" />
+          </ComplexProperty>
+          <ComplexProperty Name="AsepticTechnique" TypeName="StudyModel.AsepticTechnique">
+            <ScalarProperty Name="Autoclave" ColumnName="AsepticTechnique_Autoclave" />
+            <ScalarProperty Name="HotBead" ColumnName="AsepticTechnique_HotBead" />
+            <ScalarProperty Name="Gloves" ColumnName="AsepticTechnique_Gloves" />
+            <ScalarProperty Name="Masks" ColumnName="AsepticTechnique_Masks" />
+            <ScalarProperty Name="Scrubs" ColumnName="AsepticTechnique_Scrubs" />
+            <ScalarProperty Name="Shower" ColumnName="AsepticTechnique_Shower" />
+          </ComplexProperty>
+          <ComplexProperty Name="InternalValidity" TypeName="StudyModel.InternalValidity">
+            <ScalarProperty Name="Randomisation" ColumnName="InternalValidity_Randomisation" />
+            <ScalarProperty Name="SurgeryConceal" ColumnName="InternalValidity_SurgeryConceal" />
+            <ScalarProperty Name="HandlingConceal" ColumnName="InternalValidity_HandlingConceal" />
+            <ScalarProperty Name="BlindedInfarct" ColumnName="InternalValidity_BlindedInfarct" />
+            <ScalarProperty Name="BlindedNBS" ColumnName="InternalValidity_BlindedNBS" />
+            <ScalarProperty Name="BlindedOther" ColumnName="InternalValidity_BlindedOther" />
+          </ComplexProperty>
+          <ComplexProperty Name="OcclusionMonitoring" TypeName="StudyModel.OcclusionMonitoring">
+            <ScalarProperty Name="IncExcCriteria" ColumnName="OcclusionMonitoring_IncExcCriteria" />
+            <ScalarProperty Name="LaserFlowmetry" ColumnName="OcclusionMonitoring_LaserFlowmetry" />
+            <ScalarProperty Name="BehaviouralDefecitAssesment" ColumnName="OcclusionMonitoring_BehaviouralDefecitAssesment" />
+            <ScalarProperty Name="MRIforCBF" ColumnName="OcclusionMonitoring_MRIforCBF" />
+          </ComplexProperty>
+          <ComplexProperty Name="IschemiaModel" TypeName="StudyModel.IschemiaModel">
+            <ScalarProperty Name="IschemiaType" ColumnName="IschemiaModel_IschemiaType" />
+            <ScalarProperty Name="OcclusionMethod" ColumnName="IschemiaModel_OcclusionMethod" />
+            <ScalarProperty Name="IschemiaDuration" ColumnName="IschemiaModel_IschemiaDuration" />
+            <ScalarProperty Name="SecondaryInsult" ColumnName="IschemiaModel_SecondaryInsult" />
+          </ComplexProperty>
+          <ComplexProperty Name="DrugAdministraton" TypeName="StudyModel.DrugAdministration">
+            <ScalarProperty Name="DrugRoute" ColumnName="DrugAdministraton_DrugRoute" />
+            <ScalarProperty Name="DeliveryDuration" ColumnName="DrugAdministraton_DeliveryDuration" />
+            <ScalarProperty Name="DeliveryNumber" ColumnName="DrugAdministraton_DeliveryNumber" />
+          </ComplexProperty>
+          <ComplexProperty Name="InVivioAssays" TypeName="StudyModel.InVivoAssays">
+            <ScalarProperty Name="InVivoGlutamate" ColumnName="InVivioAssays_InVivoGlutamate" />
+            <ScalarProperty Name="InVivoOxidative" ColumnName="InVivioAssays_InVivoOxidative" />
+            <ScalarProperty Name="InVivoVasculature" ColumnName="InVivioAssays_InVivoVasculature" />
+          </ComplexProperty>
+          <ComplexProperty Name="PostOpCarePack" TypeName="StudyModel.PostOpCarePack">
+            <ScalarProperty Name="SpecialDiet" ColumnName="PostOpCarePack_SpecialDiet" />
+            <ScalarProperty Name="SubCutFluids" ColumnName="PostOpCarePack_SubCutFluids" />
+            <ScalarProperty Name="NumberCage" ColumnName="PostOpCarePack_NumberCage" />
+            <ScalarProperty Name="Bedding" ColumnName="PostOpCarePack_Bedding" />
+            <ScalarProperty Name="LocalAnesthetics" ColumnName="PostOpCarePack_LocalAnesthetics" />
+            <ScalarProperty Name="PainRelief" ColumnName="PostOpCarePack_PainRelief" />
+            <ScalarProperty Name="RecoveryQuestionnaire" ColumnName="PostOpCarePack_RecoveryQuestionnaire" />
+            <ScalarProperty Name="BodyWeightFrequency" ColumnName="PostOpCarePack_BodyWeightFrequency" />
+          </ComplexProperty>
+          <ComplexProperty Name="InfarctMeasurement" TypeName="StudyModel.InfarctMeasurement">
+            <ScalarProperty Name="TTC" ColumnName="InfarctMeasurement_TTC" />
+            <ScalarProperty Name="Histology" ColumnName="InfarctMeasurement_Histology" />
+            <ScalarProperty Name="MRI" ColumnName="InfarctMeasurement_MRI" />
+            <ScalarProperty Name="CoronalNumber" ColumnName="InfarctMeasurement_CoronalNumber" />
+            <ScalarProperty Name="RostroCovered" ColumnName="InfarctMeasurement_RostroCovered" />
+            <ScalarProperty Name="SwellingCorrection" ColumnName="InfarctMeasurement_SwellingCorrection" />
+          </ComplexProperty>
+          <ComplexProperty Name="BehaviouralOutcomes" TypeName="StudyModel.BehaviouralOutcomes">
+            <ScalarProperty Name="PostStrokePeriod" ColumnName="BehaviouralOutcomes_PostStrokePeriod" />
+            <ScalarProperty Name="NeurologicalDetails" ColumnName="BehaviouralOutcomes_NeurologicalDetails" />
+            <ScalarProperty Name="SensorTests" ColumnName="BehaviouralOutcomes_SensorTests" />
+            <ScalarProperty Name="OtherTests" ColumnName="BehaviouralOutcomes_OtherTests" />
+          </ComplexProperty>
+          <ComplexProperty Name="BrainAssays" TypeName="StudyModel.BrainAssays">
+            <ScalarProperty Name="WesternBlot" ColumnName="BrainAssays_WesternBlot" />
+            <ScalarProperty Name="mRNA" ColumnName="BrainAssays_mRNA" />
+            <ScalarProperty Name="miRNA" ColumnName="BrainAssays_miRNA" />
+            <ScalarProperty Name="ELISA" ColumnName="BrainAssays_ELISA" />
+            <ScalarProperty Name="Biochemical" ColumnName="BrainAssays_Biochemical" />
+            <ScalarProperty Name="HPLC" ColumnName="BrainAssays_HPLC" />
+          </ComplexProperty>
+          <ComplexProperty Name="BrainProcessing" TypeName="StudyModel.BrainProcessing">
+            <ScalarProperty Name="PerfusionFix" ColumnName="BrainProcessing_PerfusionFix" />
+            <ScalarProperty Name="CryostatFresh" ColumnName="BrainProcessing_CryostatFresh" />
+            <ScalarProperty Name="CryostatFixSucrose" ColumnName="BrainProcessing_CryostatFixSucrose" />
+            <ScalarProperty Name="ParaffinMicrotome" ColumnName="BrainProcessing_ParaffinMicrotome" />
+            <ScalarProperty Name="Immunohistochemistry" ColumnName="BrainProcessing_Immunohistochemistry" />
+          </ComplexProperty>
+          <ComplexProperty Name="InVitroModel" TypeName="StudyModel.InVitroModel">
+            <ScalarProperty Name="CellsInCulture" ColumnName="InVitroModel_CellsInCulture" />
+            <ScalarProperty Name="OrganotypicClices" ColumnName="InVitroModel_OrganotypicClices" />
+            <ScalarProperty Name="HypoxicChamber" ColumnName="InVitroModel_HypoxicChamber" />
+            <ScalarProperty Name="OxygenGlucoseDeprivation" ColumnName="InVitroModel_OxygenGlucoseDeprivation" />
+            <ScalarProperty Name="GlutamateToxicity" ColumnName="InVitroModel_GlutamateToxicity" />
+          </ComplexProperty>
+          <ComplexProperty Name="Housing" TypeName="StudyModel.Housing">
+            <ScalarProperty Name="AcclimatisationPeriod" ColumnName="Housing_AcclimatisationPeriod" />
+            <ScalarProperty Name="AcousticBackground" ColumnName="Housing_AcousticBackground" />
+            <ScalarProperty Name="AdditionalSpeciesLab" ColumnName="Housing_AdditionalSpeciesLab" />
+            <ScalarProperty Name="AdditionalSpeciesBuilding" ColumnName="Housing_AdditionalSpeciesBuilding" />
+            <ScalarProperty Name="BeddingMaterial" ColumnName="Housing_BeddingMaterial" />
+            <ScalarProperty Name="CageDistributor" ColumnName="Housing_CageDistributor" />
+            <ScalarProperty Name="CageType" ColumnName="Housing_CageType" />
+            <ScalarProperty Name="CageSize" ColumnName="Housing_CageSize" />
+            <ScalarProperty Name="NumberOfCageChanges" ColumnName="Housing_NumberOfCageChanges" />
+            <ScalarProperty Name="EnrichmentBySpecies" ColumnName="Housing_EnrichmentBySpecies" />
+            <ScalarProperty Name="EnrichmentType" ColumnName="Housing_EnrichmentType" />
+            <ScalarProperty Name="FilterTop" ColumnName="Housing_FilterTop" />
+            <ScalarProperty Name="FloodDeprivation" ColumnName="Housing_FloodDeprivation" />
+            <ScalarProperty Name="FloodDeprivationSchedule" ColumnName="Housing_FloodDeprivationSchedule" />
+            <ScalarProperty Name="Floor" ColumnName="Housing_Floor" />
+            <ScalarProperty Name="Handling" ColumnName="Housing_Handling" />
+            <ScalarProperty Name="HealthCheck" ColumnName="Housing_HealthCheck" />
+            <ScalarProperty Name="HealthCheckFrequency" ColumnName="Housing_HealthCheckFrequency" />
+            <ScalarProperty Name="LidDistributor" ColumnName="Housing_LidDistributor" />
+            <ScalarProperty Name="LidType" ColumnName="Housing_LidType" />
+            <ScalarProperty Name="Lighting" ColumnName="Housing_Lighting" />
+            <ScalarProperty Name="LightingHours" ColumnName="Housing_LightingHours" />
+            <ScalarProperty Name="LightPhaseIntensity" ColumnName="Housing_LightPhaseIntensity" />
+            <ScalarProperty Name="DarkPhaseIntensity" ColumnName="Housing_DarkPhaseIntensity" />
+            <ScalarProperty Name="GroupHousing" ColumnName="Housing_GroupHousing" />
+            <ScalarProperty Name="ExperimenterCount" ColumnName="Housing_ExperimenterCount" />
+            <ScalarProperty Name="AnimalsPerRoom" ColumnName="Housing_AnimalsPerRoom" />
+            <ScalarProperty Name="CagesPerRack" ColumnName="Housing_CagesPerRack" />
+            <ScalarProperty Name="RacksPerRoom" ColumnName="Housing_RacksPerRoom" />
+            <ScalarProperty Name="OdorSources" ColumnName="Housing_OdorSources" />
+            <ScalarProperty Name="RackType" ColumnName="Housing_RackType" />
+            <ScalarProperty Name="RoomSize" ColumnName="Housing_RoomSize" />
+            <ScalarProperty Name="RoomTempRange" ColumnName="Housing_RoomTempRange" />
+            <ScalarProperty Name="RoomTempRegulated" ColumnName="Housing_RoomTempRegulated" />
+            <ScalarProperty Name="RelHumidityRange" ColumnName="Housing_RelHumidityRange" />
+            <ScalarProperty Name="RelHumidityReg" ColumnName="Housing_RelHumidityReg" />
+            <ScalarProperty Name="PathogenFree" ColumnName="Housing_PathogenFree" />
+            <ScalarProperty Name="Ventilation" ColumnName="Housing_Ventilation" />
+            <ScalarProperty Name="WaterRegimen" ColumnName="Housing_WaterRegimen" />
+          </ComplexProperty>
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Outcomes">
+      <EntityTypeMapping TypeName="IsTypeOf(StudyModel.Outcome)">
+        <MappingFragment StoreEntitySet="Outcomes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Vehicle" ColumnName="Vehicle" />
+          <ScalarProperty Name="InfarctSize" ColumnName="InfarctSize" />
+          <ComplexProperty Name="AnestheticManagement" TypeName="StudyModel.AnestheticManagement">
+            <ScalarProperty Name="GADuration" ColumnName="AnestheticManagement_GADuration" />
+            <ScalarProperty Name="BloodPressure" ColumnName="AnestheticManagement_BloodPressure" />
+            <ScalarProperty Name="HeartRate" ColumnName="AnestheticManagement_HeartRate" />
+            <ScalarProperty Name="BrainTemperature" ColumnName="AnestheticManagement_BrainTemperature" />
+            <ScalarProperty Name="RectalTemperature" ColumnName="AnestheticManagement_RectalTemperature" />
+            <ScalarProperty Name="BloodGasses" ColumnName="AnestheticManagement_BloodGasses" />
+          </ComplexProperty>
+          <ComplexProperty Name="OcclusionResults" TypeName="StudyModel.OcclusionResults">
+            <ScalarProperty Name="LDFDrop" ColumnName="OcclusionResults_LDFDrop" />
+            <ScalarProperty Name="BehaviouralScores" ColumnName="OcclusionResults_BehaviouralScores" />
+            <ScalarProperty Name="MRIData" ColumnName="OcclusionResults_MRIData" />
+          </ComplexProperty>
+          <ComplexProperty Name="Terminiation" TypeName="StudyModel.Termination">
+            <ScalarProperty Name="SurvivedToEnd" ColumnName="Terminiation_SurvivedToEnd" />
+            <ScalarProperty Name="DiedDuringSurgery" ColumnName="Terminiation_DiedDuringSurgery" />
+            <ScalarProperty Name="PostOp" ColumnName="Terminiation_PostOp" />
+            <ScalarProperty Name="Autopsy" ColumnName="Terminiation_Autopsy" />
+          </ComplexProperty>
+          <ScalarProperty Name="StudyId" ColumnName="StudyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -251,6 +585,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
