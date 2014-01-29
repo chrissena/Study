@@ -55,9 +55,10 @@
           <Property Name="Vehicle" Type="String" Nullable="true" />
           <Property Name="InfarctSize" Type="Double" Nullable="true" />
           <Property Name="AnestheticManagement" Type="StudyModel.AnestheticManagement" Nullable="false" />
-          <Property Name="OcclusiongResults" Type="StudyModel.OcclusionResults" Nullable="false" />
+          <Property Name="OcclusionResults" Type="StudyModel.OcclusionResults" Nullable="false" />
           <Property Name="Terminiation" Type="StudyModel.Termination" Nullable="false" />
           <NavigationProperty Name="Study" Relationship="StudyModel.StudyOutcome" FromRole="Outcome" ToRole="Study" />
+          <Property Name="StudyId" Type="Int32" Nullable="false" />
         </EntityType>
         <ComplexType Name="AnestheticRegimen">
           <Property Type="String" Name="Anesthetic" Nullable="true" />
@@ -217,6 +218,14 @@
         <Association Name="StudyOutcome">
           <End Type="StudyModel.Study" Role="Study" Multiplicity="1" />
           <End Type="StudyModel.Outcome" Role="Outcome" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Study">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Outcome">
+              <PropertyRef Name="StudyId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>
